@@ -1,0 +1,20 @@
+.container {
+  text-align: center;
+}
+.title {
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+.container[data-band='outstanding'] .title,
+.container[data-band='great'] .title {
+  color: var(--color-success);
+}
+.container[data-band='practising'] .title {
+  color: var(--color-warning);
+}
+.message {
+  color: var(--color-text-muted);
+  max-width: 48ch;
+  margin: 0 auto;
+}
