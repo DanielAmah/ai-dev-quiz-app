@@ -1,0 +1,156 @@
+{
+  "id": "workflow-automation",
+  "title": "Workflow Automation",
+  "category": "Workflow Automation",
+  "difficulty": "intermediate",
+  "estimatedMinutes": 5,
+  "version": 1,
+  "description": "Chaining, routing, parallelising and orchestrating LLM steps into dependable pipelines.",
+  "questionCount": 6,
+  "questions": [
+    {
+      "id": "wa-1",
+      "prompt": "What is \"prompt chaining\"?",
+      "options": [
+        {
+          "id": "wa-1-a",
+          "text": "Sending the same prompt repeatedly"
+        },
+        {
+          "id": "wa-1-b",
+          "text": "Linking prompts with hyperlinks"
+        },
+        {
+          "id": "wa-1-c",
+          "text": "Storing prompts in a database"
+        },
+        {
+          "id": "wa-1-d",
+          "text": "Breaking a task into sequential steps where each LLM call uses the previous step's output"
+        }
+      ],
+      "correctOptionId": "wa-1-d",
+      "explanation": "Chaining trades a little latency for accuracy: each step is simpler and you can add checks between steps."
+    },
+    {
+      "id": "wa-2",
+      "prompt": "In a routing workflow, what does the router do?",
+      "options": [
+        {
+          "id": "wa-2-a",
+          "text": "Encrypts traffic"
+        },
+        {
+          "id": "wa-2-b",
+          "text": "Classifies the input and sends it to the most suitable specialised handler"
+        },
+        {
+          "id": "wa-2-c",
+          "text": "Retries failed requests"
+        },
+        {
+          "id": "wa-2-d",
+          "text": "Picks a random model"
+        }
+      ],
+      "correctOptionId": "wa-2-b",
+      "explanation": "Routing lets each downstream prompt or model specialise, rather than one prompt trying to handle every case."
+    },
+    {
+      "id": "wa-3",
+      "prompt": "When does running LLM calls in parallel make sense?",
+      "options": [
+        {
+          "id": "wa-3-a",
+          "text": "When each step depends on the previous one"
+        },
+        {
+          "id": "wa-3-b",
+          "text": "When subtasks are independent of each other"
+        },
+        {
+          "id": "wa-3-c",
+          "text": "Only when using one model"
+        },
+        {
+          "id": "wa-3-d",
+          "text": "Never; it always causes errors"
+        }
+      ],
+      "correctOptionId": "wa-3-b",
+      "explanation": "Independent subtasks (for example, checking several documents) can run concurrently to cut latency, then be aggregated."
+    },
+    {
+      "id": "wa-4",
+      "prompt": "In an orchestrator-workers pattern, what does the orchestrator do?",
+      "options": [
+        {
+          "id": "wa-4-a",
+          "text": "Executes every subtask itself"
+        },
+        {
+          "id": "wa-4-b",
+          "text": "Only logs metrics"
+        },
+        {
+          "id": "wa-4-c",
+          "text": "Chooses the UI theme"
+        },
+        {
+          "id": "wa-4-d",
+          "text": "Dynamically breaks the task into subtasks, delegates them to workers and combines the results"
+        }
+      ],
+      "correctOptionId": "wa-4-d",
+      "explanation": "The orchestrator plans and delegates at run time, which suits tasks where the subtasks are not known in advance."
+    },
+    {
+      "id": "wa-5",
+      "prompt": "Why make each step of an automated workflow idempotent?",
+      "options": [
+        {
+          "id": "wa-5-a",
+          "text": "So retries after a failure do not cause duplicate side effects"
+        },
+        {
+          "id": "wa-5-b",
+          "text": "So it runs faster on the first try"
+        },
+        {
+          "id": "wa-5-c",
+          "text": "Idempotency only matters for databases"
+        },
+        {
+          "id": "wa-5-d",
+          "text": "So the model gives creative answers"
+        }
+      ],
+      "correctOptionId": "wa-5-a",
+      "explanation": "Failures and retries are normal. Idempotent steps (for example, keyed by a request id) can be safely re-run without double-charging or double-sending."
+    },
+    {
+      "id": "wa-6",
+      "prompt": "What is an \"evaluator-optimizer\" loop?",
+      "options": [
+        {
+          "id": "wa-6-a",
+          "text": "A tool that picks the cheapest model"
+        },
+        {
+          "id": "wa-6-b",
+          "text": "A dashboard for latency"
+        },
+        {
+          "id": "wa-6-c",
+          "text": "A model generates output and another call critiques it, iterating until it meets criteria"
+        },
+        {
+          "id": "wa-6-d",
+          "text": "A load balancer"
+        }
+      ],
+      "correctOptionId": "wa-6-c",
+      "explanation": "One call drafts, another evaluates against clear criteria and gives feedback, and the loop repeats until the bar is met or a limit is reached."
+    }
+  ]
+}

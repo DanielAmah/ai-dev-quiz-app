@@ -1,0 +1,156 @@
+{
+  "id": "prompt-engineering",
+  "title": "Prompt Engineering Essentials",
+  "category": "Prompt Engineering",
+  "difficulty": "beginner",
+  "estimatedMinutes": 4,
+  "version": 1,
+  "description": "Clear instructions, examples, structure and output formats that models follow reliably.",
+  "questionCount": 6,
+  "questions": [
+    {
+      "id": "pe-1",
+      "prompt": "Which change most often improves an underperforming prompt?",
+      "options": [
+        {
+          "id": "pe-1-a",
+          "text": "Stating the goal, audience and constraints explicitly"
+        },
+        {
+          "id": "pe-1-b",
+          "text": "Adding more exclamation marks"
+        },
+        {
+          "id": "pe-1-c",
+          "text": "Making the prompt as short as possible"
+        },
+        {
+          "id": "pe-1-d",
+          "text": "Writing the prompt in all caps"
+        }
+      ],
+      "correctOptionId": "pe-1-a",
+      "explanation": "Models do best with explicit context: what you want, who it is for and what to avoid. Ambiguity is the most common cause of poor output."
+    },
+    {
+      "id": "pe-2",
+      "prompt": "What is \"few-shot\" prompting?",
+      "options": [
+        {
+          "id": "pe-2-a",
+          "text": "Limiting the model to a few tokens"
+        },
+        {
+          "id": "pe-2-b",
+          "text": "Retrying a prompt a few times"
+        },
+        {
+          "id": "pe-2-c",
+          "text": "Including a handful of input/output examples that demonstrate the desired behaviour"
+        },
+        {
+          "id": "pe-2-d",
+          "text": "Using several models at once"
+        }
+      ],
+      "correctOptionId": "pe-2-c",
+      "explanation": "Few-shot prompting shows worked examples so the model can infer the pattern, format and tone you expect."
+    },
+    {
+      "id": "pe-3",
+      "prompt": "Why wrap distinct parts of a prompt (instructions, documents, examples) in clear delimiters such as XML-style tags?",
+      "options": [
+        {
+          "id": "pe-3-a",
+          "text": "It encrypts the prompt"
+        },
+        {
+          "id": "pe-3-b",
+          "text": "Tags are required by every API"
+        },
+        {
+          "id": "pe-3-c",
+          "text": "It helps the model tell instructions apart from data and reduces confusion"
+        },
+        {
+          "id": "pe-3-d",
+          "text": "It makes the prompt cheaper"
+        }
+      ],
+      "correctOptionId": "pe-3-c",
+      "explanation": "Delimiters create unambiguous structure. They also make it harder for content inside a document to be mistaken for instructions."
+    },
+    {
+      "id": "pe-4",
+      "prompt": "You need output your code can parse. What is the most robust approach?",
+      "options": [
+        {
+          "id": "pe-4-a",
+          "text": "Specify an exact schema and use structured output or tool calling, then validate the result"
+        },
+        {
+          "id": "pe-4-b",
+          "text": "Ask nicely for JSON and hope"
+        },
+        {
+          "id": "pe-4-c",
+          "text": "Parse free text with regular expressions"
+        },
+        {
+          "id": "pe-4-d",
+          "text": "Ask for a Markdown table"
+        }
+      ],
+      "correctOptionId": "pe-4-a",
+      "explanation": "Structured output features and schema validation give you machine-checkable results. Always validate before trusting the shape."
+    },
+    {
+      "id": "pe-5",
+      "prompt": "What does asking a model to \"think step by step\" before answering typically help with?",
+      "options": [
+        {
+          "id": "pe-5-a",
+          "text": "Reducing token usage"
+        },
+        {
+          "id": "pe-5-b",
+          "text": "Making the answer shorter"
+        },
+        {
+          "id": "pe-5-c",
+          "text": "Avoiding the need for a system prompt"
+        },
+        {
+          "id": "pe-5-d",
+          "text": "Multi-step reasoning tasks such as maths or logic"
+        }
+      ],
+      "correctOptionId": "pe-5-d",
+      "explanation": "Giving the model room to reason before its final answer tends to improve accuracy on problems that require several steps."
+    },
+    {
+      "id": "pe-6",
+      "prompt": "What is prompt injection?",
+      "options": [
+        {
+          "id": "pe-6-a",
+          "text": "A faster way to send prompts"
+        },
+        {
+          "id": "pe-6-b",
+          "text": "Untrusted input that contains instructions trying to override the original prompt"
+        },
+        {
+          "id": "pe-6-c",
+          "text": "A method for compressing prompts"
+        },
+        {
+          "id": "pe-6-d",
+          "text": "Adding examples to a prompt"
+        }
+      ],
+      "correctOptionId": "pe-6-b",
+      "explanation": "Prompt injection happens when data (a web page, email or document) carries instructions the model may follow. Treat untrusted content as data and limit what actions it can trigger."
+    }
+  ]
+}

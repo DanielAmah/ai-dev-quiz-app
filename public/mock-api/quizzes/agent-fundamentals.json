@@ -1,0 +1,156 @@
+{
+  "id": "agent-fundamentals",
+  "title": "Agent Fundamentals",
+  "category": "Agent Design",
+  "difficulty": "beginner",
+  "estimatedMinutes": 4,
+  "version": 1,
+  "description": "What makes a system an agent: the loop, tools, memory and when to stop.",
+  "questionCount": 6,
+  "questions": [
+    {
+      "id": "af-1",
+      "prompt": "What best distinguishes an AI agent from a single LLM call?",
+      "options": [
+        {
+          "id": "af-1-a",
+          "text": "It uses a larger model"
+        },
+        {
+          "id": "af-1-b",
+          "text": "It always has a graphical interface"
+        },
+        {
+          "id": "af-1-c",
+          "text": "It runs a loop where the model chooses actions, observes results and decides what to do next"
+        },
+        {
+          "id": "af-1-d",
+          "text": "It never needs a system prompt"
+        }
+      ],
+      "correctOptionId": "af-1-c",
+      "explanation": "An agent repeatedly plans, acts (often via tools) and observes outcomes. A single call produces one response with no feedback loop."
+    },
+    {
+      "id": "af-2",
+      "prompt": "In an agent loop, what is an \"observation\"?",
+      "options": [
+        {
+          "id": "af-2-a",
+          "text": "The result returned to the model after it takes an action, such as a tool output"
+        },
+        {
+          "id": "af-2-b",
+          "text": "The user's first message"
+        },
+        {
+          "id": "af-2-c",
+          "text": "The model's hidden reasoning"
+        },
+        {
+          "id": "af-2-d",
+          "text": "A log line written for developers only"
+        }
+      ],
+      "correctOptionId": "af-2-a",
+      "explanation": "Observations are the feedback the environment gives the agent after an action. They are what lets the agent correct course."
+    },
+    {
+      "id": "af-3",
+      "prompt": "Why should an agent have an explicit stopping condition or step budget?",
+      "options": [
+        {
+          "id": "af-3-a",
+          "text": "To make responses longer"
+        },
+        {
+          "id": "af-3-b",
+          "text": "Because models cannot call tools more than once"
+        },
+        {
+          "id": "af-3-c",
+          "text": "It is only needed for streaming responses"
+        },
+        {
+          "id": "af-3-d",
+          "text": "To prevent runaway loops that waste cost and time when the goal cannot be reached"
+        }
+      ],
+      "correctOptionId": "af-3-d",
+      "explanation": "Without a budget or clear done-criteria, an agent can loop indefinitely. Step limits, timeouts and success checks keep it bounded."
+    },
+    {
+      "id": "af-4",
+      "prompt": "Which is the most reasonable use of short-term memory (the context window) in an agent?",
+      "options": [
+        {
+          "id": "af-4-a",
+          "text": "Storing every past user across all sessions"
+        },
+        {
+          "id": "af-4-b",
+          "text": "Holding the current task, recent tool results and the plan in progress"
+        },
+        {
+          "id": "af-4-c",
+          "text": "Saving API keys for later calls"
+        },
+        {
+          "id": "af-4-d",
+          "text": "Caching the model weights"
+        }
+      ],
+      "correctOptionId": "af-4-b",
+      "explanation": "The context window is working memory for the current task. Long-lived facts belong in external storage that is retrieved when relevant."
+    },
+    {
+      "id": "af-5",
+      "prompt": "When is a simple, deterministic workflow usually a better choice than an autonomous agent?",
+      "options": [
+        {
+          "id": "af-5-a",
+          "text": "When the task is open-ended research"
+        },
+        {
+          "id": "af-5-b",
+          "text": "When the steps are known in advance and rarely change"
+        },
+        {
+          "id": "af-5-c",
+          "text": "When the user wants creativity"
+        },
+        {
+          "id": "af-5-d",
+          "text": "Never; agents are always better"
+        }
+      ],
+      "correctOptionId": "af-5-b",
+      "explanation": "If the path is predictable, a fixed workflow is cheaper, faster and easier to test. Reach for agent autonomy when the steps genuinely depend on what is discovered along the way."
+    },
+    {
+      "id": "af-6",
+      "prompt": "What is the main purpose of a \"human-in-the-loop\" checkpoint?",
+      "options": [
+        {
+          "id": "af-6-a",
+          "text": "To slow the agent down on purpose"
+        },
+        {
+          "id": "af-6-b",
+          "text": "To replace the model with a human"
+        },
+        {
+          "id": "af-6-c",
+          "text": "To collect training data automatically"
+        },
+        {
+          "id": "af-6-d",
+          "text": "To let a person approve high-impact or irreversible actions before they happen"
+        }
+      ],
+      "correctOptionId": "af-6-d",
+      "explanation": "Checkpoints put a human decision in front of risky actions like payments, deletions or sending messages, where a mistake would be costly."
+    }
+  ]
+}

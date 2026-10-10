@@ -1,0 +1,156 @@
+{
+  "id": "evaluation-reliability",
+  "title": "Evaluation and Reliability",
+  "category": "Workflow Automation",
+  "difficulty": "advanced",
+  "estimatedMinutes": 5,
+  "version": 1,
+  "description": "Measuring LLM features, catching regressions and running them safely in production.",
+  "questionCount": 6,
+  "questions": [
+    {
+      "id": "er-1",
+      "prompt": "What is an \"eval\" in AI application development?",
+      "options": [
+        {
+          "id": "er-1-a",
+          "text": "A JavaScript function"
+        },
+        {
+          "id": "er-1-b",
+          "text": "A pricing tier"
+        },
+        {
+          "id": "er-1-c",
+          "text": "A repeatable test set with criteria for judging model outputs"
+        },
+        {
+          "id": "er-1-d",
+          "text": "A type of embedding"
+        }
+      ],
+      "correctOptionId": "er-1-c",
+      "explanation": "Evals are datasets plus grading criteria. They turn \"it seems better\" into a measurable comparison across prompt or model changes."
+    },
+    {
+      "id": "er-2",
+      "prompt": "When is using an LLM as a grader (\"LLM-as-judge\") most appropriate?",
+      "options": [
+        {
+          "id": "er-2-a",
+          "text": "For nuanced qualities such as helpfulness or tone, with a clear rubric and spot-checked by humans"
+        },
+        {
+          "id": "er-2-b",
+          "text": "For exact-match checks like a number"
+        },
+        {
+          "id": "er-2-c",
+          "text": "Never"
+        },
+        {
+          "id": "er-2-d",
+          "text": "Only when no test data exists"
+        }
+      ],
+      "correctOptionId": "er-2-a",
+      "explanation": "Model graders scale subjective judgments, but they need precise rubrics and periodic human calibration. Use code for anything exactly checkable."
+    },
+    {
+      "id": "er-3",
+      "prompt": "Why run your eval suite before shipping a prompt change?",
+      "options": [
+        {
+          "id": "er-3-a",
+          "text": "Because the API requires it"
+        },
+        {
+          "id": "er-3-b",
+          "text": "To reduce token prices"
+        },
+        {
+          "id": "er-3-c",
+          "text": "It is only useful for new features"
+        },
+        {
+          "id": "er-3-d",
+          "text": "To detect regressions on cases that previously worked"
+        }
+      ],
+      "correctOptionId": "er-3-d",
+      "explanation": "A prompt tweak that fixes one case can break others. Running the full suite catches regressions before users do."
+    },
+    {
+      "id": "er-4",
+      "prompt": "Which is the best defence against hallucinated facts in a support bot?",
+      "options": [
+        {
+          "id": "er-4-a",
+          "text": "Raising the temperature"
+        },
+        {
+          "id": "er-4-b",
+          "text": "Grounding answers in retrieved documents and asking the model to cite or say it does not know"
+        },
+        {
+          "id": "er-4-c",
+          "text": "Removing the system prompt"
+        },
+        {
+          "id": "er-4-d",
+          "text": "Using shorter questions"
+        }
+      ],
+      "correctOptionId": "er-4-b",
+      "explanation": "Grounding plus permission to say \"I don't know\" reduces fabrication, and citations make answers verifiable."
+    },
+    {
+      "id": "er-5",
+      "prompt": "What should you log in production for an LLM feature?",
+      "options": [
+        {
+          "id": "er-5-a",
+          "text": "Nothing, for speed"
+        },
+        {
+          "id": "er-5-b",
+          "text": "Inputs, outputs, tool calls, latency and errors, with sensitive data handled appropriately"
+        },
+        {
+          "id": "er-5-c",
+          "text": "Only the final answer"
+        },
+        {
+          "id": "er-5-d",
+          "text": "Only failures"
+        }
+      ],
+      "correctOptionId": "er-5-b",
+      "explanation": "Traces let you debug failures, build new eval cases from real traffic and monitor cost and latency, while respecting privacy."
+    },
+    {
+      "id": "er-6",
+      "prompt": "Your model provider has an outage. What is a reasonable resilience strategy?",
+      "options": [
+        {
+          "id": "er-6-a",
+          "text": "Show a blank page"
+        },
+        {
+          "id": "er-6-b",
+          "text": "Retry instantly in a tight loop"
+        },
+        {
+          "id": "er-6-c",
+          "text": "Disable error handling"
+        },
+        {
+          "id": "er-6-d",
+          "text": "Retry with backoff, fall back to an alternative model or degraded mode, and show a clear message"
+        }
+      ],
+      "correctOptionId": "er-6-d",
+      "explanation": "Bounded retries with backoff, fallbacks and honest user messaging keep the product usable during partial failures."
+    }
+  ]
+}

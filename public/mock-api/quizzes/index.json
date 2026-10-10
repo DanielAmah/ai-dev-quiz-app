@@ -1,0 +1,52 @@
+[
+  {
+    "id": "agent-fundamentals",
+    "title": "Agent Fundamentals",
+    "category": "Agent Design",
+    "difficulty": "beginner",
+    "estimatedMinutes": 4,
+    "version": 1,
+    "description": "What makes a system an agent: the loop, tools, memory and when to stop.",
+    "questionCount": 6
+  },
+  {
+    "id": "prompt-engineering",
+    "title": "Prompt Engineering Essentials",
+    "category": "Prompt Engineering",
+    "difficulty": "beginner",
+    "estimatedMinutes": 4,
+    "version": 1,
+    "description": "Clear instructions, examples, structure and output formats that models follow reliably.",
+    "questionCount": 6
+  },
+  {
+    "id": "tool-use",
+    "title": "Tool Use and Function Calling",
+    "category": "Agent Design",
+    "difficulty": "intermediate",
+    "estimatedMinutes": 5,
+    "version": 1,
+    "description": "Designing tools that models call correctly, safely and efficiently.",
+    "questionCount": 6
+  },
+  {
+    "id": "workflow-automation",
+    "title": "Workflow Automation",
+    "category": "Workflow Automation",
+    "difficulty": "intermediate",
+    "estimatedMinutes": 5,
+    "version": 1,
+    "description": "Chaining, routing, parallelising and orchestrating LLM steps into dependable pipelines.",
+    "questionCount": 6
+  },
+  {
+    "id": "evaluation-reliability",
+    "title": "Evaluation and Reliability",
+    "category": "Workflow Automation",
+    "difficulty": "advanced",
+    "estimatedMinutes": 5,
+    "version": 1,
+    "description": "Measuring LLM features, catching regressions and running them safely in production.",
+    "questionCount": 6
+  }
+]

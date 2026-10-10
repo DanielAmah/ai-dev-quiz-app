@@ -1,0 +1,156 @@
+{
+  "id": "tool-use",
+  "title": "Tool Use and Function Calling",
+  "category": "Agent Design",
+  "difficulty": "intermediate",
+  "estimatedMinutes": 5,
+  "version": 1,
+  "description": "Designing tools that models call correctly, safely and efficiently.",
+  "questionCount": 6,
+  "questions": [
+    {
+      "id": "tu-1",
+      "prompt": "What makes a tool description effective for a model?",
+      "options": [
+        {
+          "id": "tu-1-a",
+          "text": "A one-word name only"
+        },
+        {
+          "id": "tu-1-b",
+          "text": "A clear name, a description of when to use it and well-documented parameters"
+        },
+        {
+          "id": "tu-1-c",
+          "text": "Hiding the parameters so the model guesses"
+        },
+        {
+          "id": "tu-1-d",
+          "text": "Very long descriptions copied from the source code"
+        }
+      ],
+      "correctOptionId": "tu-1-b",
+      "explanation": "The model chooses tools from their names and descriptions. Say what it does, when to use it, and what each parameter means."
+    },
+    {
+      "id": "tu-2",
+      "prompt": "Who actually executes a function the model \"calls\"?",
+      "options": [
+        {
+          "id": "tu-2-a",
+          "text": "The model itself, inside its weights"
+        },
+        {
+          "id": "tu-2-b",
+          "text": "The user's browser automatically"
+        },
+        {
+          "id": "tu-2-c",
+          "text": "Nobody; the call is only illustrative"
+        },
+        {
+          "id": "tu-2-d",
+          "text": "Your application code, which then returns the result to the model"
+        }
+      ],
+      "correctOptionId": "tu-2-d",
+      "explanation": "The model emits a structured request. Your code runs the function and sends the result back as an observation."
+    },
+    {
+      "id": "tu-3",
+      "prompt": "A tool returns a 50,000-line log file. What is the best practice?",
+      "options": [
+        {
+          "id": "tu-3-a",
+          "text": "Return a concise, relevant summary or a filtered slice, with a way to fetch more"
+        },
+        {
+          "id": "tu-3-b",
+          "text": "Return all of it so nothing is lost"
+        },
+        {
+          "id": "tu-3-c",
+          "text": "Return nothing"
+        },
+        {
+          "id": "tu-3-d",
+          "text": "Return it as an image"
+        }
+      ],
+      "correctOptionId": "tu-3-a",
+      "explanation": "Tool output consumes context. Return what is useful and let the agent request more detail if needed."
+    },
+    {
+      "id": "tu-4",
+      "prompt": "Why validate tool arguments before executing them?",
+      "options": [
+        {
+          "id": "tu-4-a",
+          "text": "Models never make mistakes, so it is unnecessary"
+        },
+        {
+          "id": "tu-4-b",
+          "text": "Validation is only needed for read-only tools"
+        },
+        {
+          "id": "tu-4-c",
+          "text": "Arguments can be malformed or unsafe, and validation prevents bad or dangerous actions"
+        },
+        {
+          "id": "tu-4-d",
+          "text": "It makes the model faster"
+        }
+      ],
+      "correctOptionId": "tu-4-c",
+      "explanation": "Treat model-produced arguments like user input: check types, ranges and permissions before acting."
+    },
+    {
+      "id": "tu-5",
+      "prompt": "What should a tool return when it fails?",
+      "options": [
+        {
+          "id": "tu-5-a",
+          "text": "An empty string"
+        },
+        {
+          "id": "tu-5-b",
+          "text": "Crash the whole agent"
+        },
+        {
+          "id": "tu-5-c",
+          "text": "A clear error message the model can understand and act on"
+        },
+        {
+          "id": "tu-5-d",
+          "text": "A fake success so the loop continues"
+        }
+      ],
+      "correctOptionId": "tu-5-c",
+      "explanation": "Informative errors let the agent retry with corrected input or choose another approach. Silent or fake success leads to wrong conclusions."
+    },
+    {
+      "id": "tu-6",
+      "prompt": "What is the main benefit of a standard such as the Model Context Protocol (MCP)?",
+      "options": [
+        {
+          "id": "tu-6-a",
+          "text": "It gives a common way to expose tools and data to many different AI applications"
+        },
+        {
+          "id": "tu-6-b",
+          "text": "It replaces the need for an LLM"
+        },
+        {
+          "id": "tu-6-c",
+          "text": "It makes models run offline"
+        },
+        {
+          "id": "tu-6-d",
+          "text": "It is a prompt template format"
+        }
+      ],
+      "correctOptionId": "tu-6-a",
+      "explanation": "A shared protocol means a tool integration can be written once and used by any compatible client, instead of bespoke glue per app."
+    }
+  ]
+}
