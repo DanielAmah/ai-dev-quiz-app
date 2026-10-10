@@ -61,6 +61,7 @@ These are the things an agent's happy-path UI usually gets wrong. They're handle
 deliberately and verified by driving the real app in a browser (`e2e/quiz.spec.ts`).
 
 ### Stays correct under rapid interaction
+
 All quiz state lives in a **pure reducer** (`src/features/quiz/quizReducer.ts`):
 
 - An answer is recorded **once per question**; re-answering (a rapid double-click, or a
@@ -71,6 +72,7 @@ All quiz state lives in a **pure reducer** (`src/features/quiz/quizReducer.ts`):
   nothing to double-count.
 
 ### Survives interruption (refresh / return later)
+
 The active attempt is persisted to `localStorage` on every change
 (`src/services/sessionStore.ts`). On load it's restored **only if** it's in progress,
 belongs to this quiz, matches the quiz `version`, and its question set still matches —
@@ -78,6 +80,7 @@ otherwise it's discarded cleanly. On completion the attempt is written to histor
 once and the active session is cleared.
 
 ### Loading / empty / error states everywhere
+
 Data fetching goes through `useAsync`, which models `idle | loading | success | error` and
 **aborts the in-flight request** on unmount or input change (no stale overwrites). Every
 data screen renders a spinner while loading, a typed error with a Retry, or an empty
@@ -94,13 +97,13 @@ simulated latency and `AbortSignal` support. Every response is **validated at ru
 
 Query params for exercising states (dev or preview):
 
-| Param               | Effect                                        |
-| ------------------- | --------------------------------------------- |
-| `?mockDelay=2000`   | Override latency (ms)                         |
-| `?mockError=catalog`| Force the catalog fetch to fail               |
-| `?mockError=quiz`   | Force a quiz fetch to fail                    |
-| `?mockError=all`    | Force everything to fail                      |
-| `?mockEmpty=1`      | Return an empty catalog                       |
+| Param                | Effect                          |
+| -------------------- | ------------------------------- |
+| `?mockDelay=2000`    | Override latency (ms)           |
+| `?mockError=catalog` | Force the catalog fetch to fail |
+| `?mockError=quiz`    | Force a quiz fetch to fail      |
+| `?mockError=all`     | Force everything to fail        |
+| `?mockEmpty=1`       | Return an empty catalog         |
 
 Default latency is `VITE_MOCK_LATENCY_MS` (see `.env.example`).
 
