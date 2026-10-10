@@ -1,6 +1,6 @@
 import { useId, useState, type FormEvent } from 'react';
 import { Button } from '@/components/common/Button';
-import { useProfile } from '@/context/ProfileContext';
+import { useProfile } from '@/state';
 import { validateUsername } from '@/utils/validateUsername';
 import styles from './ProfilePage.module.css';
 

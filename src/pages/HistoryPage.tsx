@@ -2,19 +2,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/common/Button';
 import { EmptyState } from '@/components/common/StateMessage';
 import { ProgressChart } from '@/components/history/ProgressChart';
-import { useHistory } from '@/context/HistoryContext';
+import { useHistory } from '@/state';
 import { perQuizBests, summariseHistory } from '@/utils/performance';
+import { formatDate, formatPercent, formatScoreLine, pluralizeAttempts } from '@/utils/format';
 import styles from './HistoryPage.module.css';
-
-const dateFormatter = new Intl.DateTimeFormat(undefined, {
-  dateStyle: 'medium',
-  timeStyle: 'short',
-});
-
-function formatDate(iso: string): string {
-  const date = new Date(iso);
-  return Number.isNaN(date.getTime()) ? iso : dateFormatter.format(date);
-}
 
 export default function HistoryPage() {
   const navigate = useNavigate();
@@ -63,11 +54,11 @@ export default function HistoryPage() {
         </div>
         <div className={styles.stat}>
           <dt className={styles.statLabel}>Best score</dt>
-          <dd className={styles.statValue}>{summary.bestPercentage}%</dd>
+          <dd className={styles.statValue}>{formatPercent(summary.bestPercentage)}</dd>
         </div>
         <div className={styles.stat}>
           <dt className={styles.statLabel}>Average score</dt>
-          <dd className={styles.statValue}>{summary.averagePercentage}%</dd>
+          <dd className={styles.statValue}>{formatPercent(summary.averagePercentage)}</dd>
         </div>
       </dl>
 
@@ -85,10 +76,8 @@ export default function HistoryPage() {
                 <p className={styles.bestMeta}>{best.category}</p>
               </div>
               <div className={styles.bestRight}>
-                <span className={styles.bestPercent}>{best.bestPercentage}%</span>
-                <span className={styles.bestMeta}>
-                  {best.attemptCount} attempt{best.attemptCount === 1 ? '' : 's'}
-                </span>
+                <span className={styles.bestPercent}>{formatPercent(best.bestPercentage)}</span>
+                <span className={styles.bestMeta}>{pluralizeAttempts(best.attemptCount)}</span>
               </div>
             </li>
           ))}
@@ -110,7 +99,7 @@ export default function HistoryPage() {
                   </p>
                 </div>
                 <span className={styles.attemptScore}>
-                  {attempt.score} / {attempt.total} · {Math.round(attempt.percentage)}%
+                  {formatScoreLine(attempt.score, attempt.total, attempt.percentage)}
                 </span>
               </Link>
             </li>

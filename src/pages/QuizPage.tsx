@@ -6,7 +6,7 @@ import { QuestionView } from '@/components/quiz/QuestionView';
 import { ProgressBar } from '@/components/quiz/ProgressBar';
 import { useAsync } from '@/hooks/useAsync';
 import { fetchQuiz } from '@/services/quizApi';
-import { useQuizSession } from '@/features/quiz/useQuizSession';
+import { useQuizSession } from '@/state';
 import type { Quiz, QuizMode } from '@/types';
 import { describeError } from '@/utils/errorMessages';
 import styles from './QuizPage.module.css';

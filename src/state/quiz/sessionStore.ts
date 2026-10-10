@@ -1,5 +1,5 @@
 import type { QuizSession } from '@/types';
-import type { QuizState } from '@/features/quiz/quizReducer';
+import type { QuizState } from '@/state/quiz/quizReducer';
 import { readValue, removeValue, writeValue } from '@/services/storage';
 
 /**

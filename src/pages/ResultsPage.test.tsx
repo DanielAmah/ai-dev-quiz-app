@@ -5,7 +5,7 @@ import type { AttemptRecord } from '@/types';
 import ResultsPage from './ResultsPage';
 
 const mockUseHistory = vi.fn();
-vi.mock('@/context/HistoryContext', () => ({
+vi.mock('@/state/history/HistoryContext', () => ({
   useHistory: () => mockUseHistory(),
 }));
 
