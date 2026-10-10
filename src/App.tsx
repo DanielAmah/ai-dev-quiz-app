@@ -1,3 +1,11 @@
+import { RouterProvider } from 'react-router-dom';
+import { ErrorBoundary } from '@/components/common/ErrorBoundary';
+import { router } from '@/routes';
+
 export default function App() {
-  return <h1>AI Development Quiz</h1>;
+  return (
+    <ErrorBoundary>
+      <RouterProvider router={router} />
+    </ErrorBoundary>
+  );
 }
