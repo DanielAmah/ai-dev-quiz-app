@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { beforeEach, describe, expect, it } from 'vitest';
-import { ProfileProvider } from '@/context/ProfileContext';
+import { ProfileProvider } from '@/state/profile/ProfileContext';
 import ProfilePage from './ProfilePage';
 
 const STORAGE_KEY = 'ai-dev-quiz:profile';

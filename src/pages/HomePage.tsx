@@ -1,8 +1,7 @@
 import { useId, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchQuizzes } from '@/services/quizApi';
-import { loadSession } from '@/services/sessionStore';
-import { useProfile } from '@/context/ProfileContext';
+import { loadSession, useProfile } from '@/state';
 import { useAsync } from '@/hooks/useAsync';
 import { describeError } from '@/utils/errorMessages';
 import { Button } from '@/components/common/Button';

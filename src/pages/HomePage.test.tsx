@@ -6,7 +6,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { QuizSummary } from '@/types';
 import { ApiError } from '@/services/apiError';
 import HomePage from './HomePage';
-import { ProfileProvider } from '@/context/ProfileContext';
+import { ProfileProvider } from '@/state/profile/ProfileContext';
 
 vi.mock('@/services/quizApi', () => ({
   fetchQuizzes: vi.fn(),

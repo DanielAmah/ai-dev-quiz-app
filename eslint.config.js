@@ -31,7 +31,7 @@ export default defineConfig([
   },
   {
     // Context modules export a provider and its hook together by design.
-    files: ['src/context/**/*.tsx'],
+    files: ['src/state/**/*.tsx'],
     rules: { 'react-refresh/only-export-components': 'off' },
   },
   {

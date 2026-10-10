@@ -1,16 +1,11 @@
 import { Link } from 'react-router-dom';
+import { DifficultyBadge } from '@/components/common/Badge';
 import type { QuizSummary } from '@/types';
 import styles from './QuizCard.module.css';
 
 interface QuizCardProps {
   quiz: QuizSummary;
 }
-
-const difficultyLabel: Record<QuizSummary['difficulty'], string> = {
-  beginner: 'Beginner',
-  intermediate: 'Intermediate',
-  advanced: 'Advanced',
-};
 
 export function QuizCard({ quiz }: QuizCardProps) {
   const headingId = `quiz-${quiz.id}-title`;
@@ -19,12 +14,7 @@ export function QuizCard({ quiz }: QuizCardProps) {
     <article className={styles.card} aria-labelledby={headingId}>
       <div className={styles.header}>
         <span className={styles.category}>{quiz.category}</span>
-        <span
-          className={`${styles.badge} ${styles[quiz.difficulty]}`}
-          data-testid="difficulty-badge"
-        >
-          {difficultyLabel[quiz.difficulty]}
-        </span>
+        <DifficultyBadge difficulty={quiz.difficulty} />
       </div>
       <h3 id={headingId} className={styles.title}>
         {quiz.title}

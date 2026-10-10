@@ -3,7 +3,8 @@ import { Button } from '@/components/common/Button';
 import { EmptyState } from '@/components/common/StateMessage';
 import { MissedQuestions } from '@/components/results/MissedQuestions';
 import { PerformanceMessage } from '@/components/results/PerformanceMessage';
-import { useHistory } from '@/context/HistoryContext';
+import { ScoreRing } from '@/components/common/ScoreRing';
+import { useHistory } from '@/state';
 import styles from './ResultsPage.module.css';
 
 export default function ResultsPage() {
@@ -27,10 +28,6 @@ export default function ResultsPage() {
     );
   }
 
-  const percentage = Math.round(attempt.percentage);
-  const circumference = 2 * Math.PI * 52;
-  const dash = (percentage / 100) * circumference;
-
   return (
     <section className={styles.page} aria-labelledby="results-heading">
       <header className={styles.header}>
@@ -41,28 +38,7 @@ export default function ResultsPage() {
       </header>
 
       <div className={styles.scorePanel}>
-        <div
-          className={styles.ring}
-          role="img"
-          aria-label={`Scored ${attempt.score} out of ${attempt.total}, ${percentage} percent`}
-        >
-          <svg viewBox="0 0 120 120" className={styles.ringSvg} aria-hidden="true">
-            <circle className={styles.ringTrack} cx="60" cy="60" r="52" />
-            <circle
-              className={styles.ringProgress}
-              cx="60"
-              cy="60"
-              r="52"
-              strokeDasharray={`${dash} ${circumference}`}
-            />
-          </svg>
-          <div className={styles.ringLabel}>
-            <span className={styles.percentage}>{percentage}%</span>
-            <span className={styles.fraction}>
-              {attempt.score} / {attempt.total}
-            </span>
-          </div>
-        </div>
+        <ScoreRing score={attempt.score} total={attempt.total} percentage={attempt.percentage} />
         <PerformanceMessage percentage={attempt.percentage} />
       </div>
 

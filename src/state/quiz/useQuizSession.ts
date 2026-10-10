@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
 import type { AttemptRecord, Quiz, QuizMode } from '@/types';
-import { useHistory } from '@/context/HistoryContext';
-import { clearSession, loadSession, saveSession } from '@/services/sessionStore';
+import { useHistory } from '@/state/history/HistoryContext';
+import { clearSession, loadSession, saveSession } from '@/state/quiz/sessionStore';
 import { createId } from '@/utils/id';
 import { buildAttempt } from './buildAttempt';
 import { createInitialState, quizReducer, type QuizAction, type QuizState } from './quizReducer';

@@ -1,7 +1,6 @@
 import { RouterProvider } from 'react-router-dom';
 import { ErrorBoundary } from '@/components/common/ErrorBoundary';
-import { HistoryProvider } from '@/context/HistoryContext';
-import { ProfileProvider } from '@/context/ProfileContext';
+import { HistoryProvider, ProfileProvider } from '@/state';
 import { router } from '@/routes';
 
 export default function App() {
