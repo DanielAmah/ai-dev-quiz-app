@@ -2,6 +2,7 @@ import { useId, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchQuizzes } from '@/services/quizApi';
 import { loadSession } from '@/services/sessionStore';
+import { useProfile } from '@/context/ProfileContext';
 import { useAsync } from '@/hooks/useAsync';
 import { describeError } from '@/utils/errorMessages';
 import { Button } from '@/components/common/Button';
@@ -23,6 +24,8 @@ export default function HomePage() {
     const session = loadSession();
     return session?.status === 'in-progress' ? session : null;
   }, []);
+
+  const { profile } = useProfile();
 
   const quizzes = useMemo(() => data ?? [], [data]);
 
@@ -56,7 +59,9 @@ export default function HomePage() {
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
-        <h1 className={styles.heroTitle}>AI Development Quizzes</h1>
+        <h1 className={styles.heroTitle}>
+          {profile ? `Welcome back, ${profile.username}` : 'AI Development Quizzes'}
+        </h1>
         <p className={styles.heroText}>
           Test and reinforce your understanding of AI software development: agent design, prompt
           engineering, workflow automation.
