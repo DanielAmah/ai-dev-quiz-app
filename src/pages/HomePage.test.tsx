@@ -6,6 +6,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { QuizSummary } from '@/types';
 import { ApiError } from '@/services/apiError';
 import HomePage from './HomePage';
+import { ProfileProvider } from '@/context/ProfileContext';
 
 vi.mock('@/services/quizApi', () => ({
   fetchQuizzes: vi.fn(),
@@ -41,9 +42,11 @@ const quizzes: QuizSummary[] = [
 function renderHome() {
   return render(
     <StrictMode>
-      <MemoryRouter>
-        <HomePage />
-      </MemoryRouter>
+      <ProfileProvider>
+        <MemoryRouter>
+          <HomePage />
+        </MemoryRouter>
+      </ProfileProvider>
     </StrictMode>,
   );
 }
